@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{%block title%} Comment {%endblock%}
+{% block content%}
+{% if user.is_authenticated%}
+<div class="edit-class comment-class">
+    <h1>Add Comment</h1>
+    <div class="form-group">
+        <form action="" method="post">
+            {%csrf_token%}
+            <!-- for rich text editor -->
+            {{form.as_p}}
+
+            <!-- as_'format' -->
+            <button class="btn btn-danger">Add Comment</button>
+    </div>
+    <script>
+        var name = '{{user.first_name}}';
+        document.getElementById('aut').value = name;
+    </script>
+</div>
+
+{%else%}
+<div class="edit-class">
+    <H1>Login Or Register Yourself</H1>
+</div>
+{%endif%}
+{% endblock%}

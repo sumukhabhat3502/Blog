@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{%block title%}Write a Blog {%endblock%}
+{% block content%}
+{% if user.is_authenticated%}
+<div class="edit-class write-class">
+    <h1>Write Post</h1>
+    <div class="form-group">
+        <form action="" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            <!-- for rich text editor -->
+            {{ form.media }}
+            {{form.as_p}}
+
+            <!-- as_'format' -->
+            <button class="btn btn-danger">Post</button>
+    </div>
+    <script>
+        var name = '{{user.id}}';
+        document.getElementById('author').value = name;
+    </script>
+</div>
+{%else%}
+<div class="edit-class">
+    <H1>Login Or Register Yourself</H1>
+</div>
+{%endif%}
+{% endblock%}

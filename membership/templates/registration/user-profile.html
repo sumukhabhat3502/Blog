@@ -1,0 +1,89 @@
+{% extends 'base.html'%}
+{% load static%}
+{%block title%}My Profile {%endblock%}
+
+{% block content%}
+
+<br>
+<div class="container">
+  <div class="card">
+    <div class="inner-box" id="card">
+      <div class="card-front">
+        <h2>User Profile</h2>
+        <div class="dummy">
+          {% if current_user.profile_pic %}
+          <img src="{{ current_user.profile_pic.url }}">
+          {%else%}
+          <img src="{% static 'blogap/images/user_default.png' %}">
+          {% endif %}
+        </div>
+        <div class="username-disp">
+          <span>{{current_user.user.first_name}}
+            {{current_user.user.last_name}}</span>
+        </div>
+        {% if current_user.linkedin_url %}
+        {% if current_user.Twitter_url %}
+        {% if current_user.Instagram_url %}
+        {% if current_user.website_url %}
+        <div class="link-text" style="display: flex;flex-direction: column;justify-content: center;">
+          <div class="linkss" style="color: rgba(209, 253, 10, 0.87);text-align: center;"> My Links
+          </div>
+          <div class="urlss">
+            <div class="indi-link">
+              {% if current_user.linkedin_url %}
+              <a href="{{current_user.linkedin_url}}"> <img src="{% static 'logos/LinkedIn-logo.png'%}" alt=""
+                  srcset=""></a>
+              {% endif %}
+            </div>
+            <div class="indi-link">
+              {% if current_user.Twitter_url %}
+              <a href="{{current_user.Twitter_url}}"><img src="{% static 'logos/png-clipart-twitter-logo.png'%}" alt=""
+                  srcset=""></a>
+              {% endif %}
+            </div>
+            <div class="indi-link">
+              {% if current_user.Instagram_url %}
+              <a href="{{current_user.Instagram_url}}"><img src="{% static 'logos/instagram-logo-svg.svg'%}" alt=""
+                  srcset=""></a>
+              {% endif %}
+            </div>
+            <div class="indi-link">
+              {% if current_user.website_url %}
+              <a href="{{current_user.website_url}}"><img src="{% static 'logos/Solutions-website-logo-png.png'%} "
+                  alt="" srcset=""></a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+
+        <button type="button" class="btn" onclick="openRegister()"> <span class="material-icons-round">
+            arrow_forward
+          </span></button>
+      </div>
+      <div class="card-back">
+        <h2>Bio</h2>
+        <div class="bio-data" style="display: flex;justify-content: center;">
+          {{ current_user.bio_data}}
+        </div>
+        <button type="button" class="btn" onclick="openLogin()"> <span class="material-icons-round">
+            arrow_back
+          </span></button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var card = document.getElementById("card");
+  function openRegister() {
+    card.style.transform = "rotateY(-180deg)";
+  }
+  function openLogin() {
+    card.style.transform = "rotateY(0deg)";
+  }
+</script>
+{% endblock%}

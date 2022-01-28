@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{%block title%}Create a Profile Page {%endblock%}
+{% block content%}
+<div class="edit-class">
+    {% if user.is_authenticated %}
+    <h1>Crete Profile</h1>
+    <div class="form-group">
+        <form action="" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            {{form.as_p}}
+
+            <!-- as_'format' -->
+            <button class="btn btn-danger">Create Profile</button>
+    </div>
+
+    {%else%}
+    <H1>Login Or Register Yourself</H1>
+    {%endif%}
+</div>
+{% endblock%}

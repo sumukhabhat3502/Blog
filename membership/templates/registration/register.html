@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{%block title%}Register {%endblock%}
+{% block content%}
+<div class="edit-class">
+    <h1>Register</h1>
+    <div class="form-group">
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <!-- as_'format' -->
+            <button class="btn btn-danger">Register</button>
+    </div>
+</div>
+{% endblock%}

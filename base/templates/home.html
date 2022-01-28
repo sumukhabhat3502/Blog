@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class="big-box">
+    <div class="box-1">
+        <h1>BLOGS</h1>
+        <br>
+        {% for pop in object_list %}
+        <div class="small-boxes">
+
+            <li>
+                <a href="{% url 'detail' pop.pk %}" class="linker">{{pop.title}}</a> <span>-</span> <a {% comment %}
+                    href="{% url 'category' pop.category %}"> {% endcomment %}
+                    <small class="cat-text">{{pop.category}}</small></a><br>
+                <div class="usercontrol">
+                    <div class="userinfo">
+                        <span>{{pop.author.first_name}}
+                            {{pop.author.last_name}},</span>
+                        <small>{{pop.post_date}}</small>
+                    </div>
+                    <div class="edit-delete">
+                        {% if user.is_authenticated%}
+                        {% if user.id == pop.author.id %}
+                        <a href="{% url 'edit' pop.pk %}"><span class="material-icons-round" id="icon-edit">
+                                edit
+                            </span></a> <a href="{% url 'delete' pop.pk %}"><span id="icon-delete"
+                                class="material-icons-round">
+                                delete
+                            </span></a>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+                <br>
+                {{post.para}}
+                <!-- TO output limited Character in home-page -->
+                {{pop.body|slice:":45"|safe}} <br>
+
+            </li>
+
+            <br>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock%}

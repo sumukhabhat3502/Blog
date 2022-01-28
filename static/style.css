@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Oval&display=swap');
+*{
+    margin: 0px;    
+}
+.container-fluiid{
+    font-family: 'Nova Oval',cursive;
+} 
+body{        
+    margin: 0;
+    height: 100vh;
+    background: #233142; 
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+}
+li{
+    list-style-type: none;
+    margin-left: 0;
+}
+.big-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between  ;
+    box-sizing: border-box;
+    margin-left: 15px;
+   
+}
+.big-box h1{
+    color: yellow;
+    text-align: center;
+    font-family: 'Nova Oval',cursive;
+}
+.small-boxes,.small-box{
+    color:  #f95959; 
+    background: white; 
+    border-radius: 25px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    transition: transform 2s;
+    font-family: 'Nova Oval',cursive;
+}
+.small-box{
+    margin: 10px 100px;
+    
+}
+.small-boxes a,.small-box a{
+    text-decoration: none;
+}
+.small-boxes:hover,.small-box:hover{
+    box-shadow: 15px 17px 11px 4px rgba(0,0,0,0.65);
+-webkit-box-shadow: 15px 17px 11px 4px rgba(0,0,0,0.65);
+-moz-box-shadow: 15px 17px 11px 4px rgba(0,0,0,0.65);
+transform: scale(1.05);
+    
+}
+.box-1,.boxes-1{
+    flex-basis: 50%;
+    padding: 15px;
+    box-sizing: border-box;
+    /* margin: 25px; */
+    margin-right: 15px;
+}
+.linker,.hyph{
+    font-size: xx-large;
+    margin-bottom: 0;
+    position: relative;
+}
+.cat-text{
+    font-size: large;
+    
+}
+.usercontrol{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Nova Oval',cursive;
+}
+#icon-delete{
+    color: red;
+    
+ }
+#icon-edit,#icon-delete{
+    font-size: xx-large;
+    
+} 
+.edit-delete{
+    margin-right: 50px;
+}
+.userinfo span{
+    font-size: large;
+    color: #f96d00;
+    font-family: 'Nova Oval',cursive;
+}
+.userinfo small{
+    color: black;
+}
+
+/* home - end*/
+/* Detailed */
+
+.linker:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: whitesmoke;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}  
+.linker:hover:before {
+    visibility: visible;
+    width: 100%;
+}
+
+/* Detailed */
+#by{
+    font-size: xx-large;
+    color: #f95959;
+}
+#authorlink{
+    color: #f96d00;
+}
+.post-body h2,.comments h2,.post-img-container h2{
+    color: yellow;
+}
+.post-body,.comment-body{
+    font-family: 'Nova Oval',cursive;
+}
+.post-body  p,.comment-body p{
+    
+    margin: 15px;
+    padding: 15px;
+    font-size: x-large;
+    margin-left: 15px;
+    
+}
+.post-body-box,.comment-body{
+    background: white;
+    height: 45vh;
+    border-radius: 25px;
+    padding: 18px;
+    margin: 50px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    overflow: auto;
+    
+}
+.comment-body{
+    height: max-content;
+    overflow: auto;
+    border-radius: 18px;
+}
+.likes-comments{
+    margin: 15px;
+}
+.likes-comments span{
+    color: #f96d00;
+}
+#comment {
+    font-size: larger;
+}
+.post-img-container2{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    
+}
+.post-img{
+    display: flex;
+    width: 80vh;
+    flex-direction: column;
+    
+}
+/* Detailed */
+/* Edit  */
+.edit-class{
+    font-family: 'Nova Oval',cursive;
+}
+.edit-class h1{
+    color: yellow;
+    text-align: center;
+    font-family: 'Nova Oval',cursive;
+}
+.form-group{
+    padding: 25px;
+    color: yellow;
+}
+.btn-primary,.btn-secondary{
+    width: auto;
+}
+/* Edit  */
+/* Delete */
+.delete-class{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.delete-class h5{
+    color: #f95959;
+    text-align: center;
+}
+.delete-class span{
+    text-align: center;
+}
+
+/* Delete */
+
+/* Category */
+
+/* Category */
+
+/* Responsive */
+/* home-start */
+@media only screen and (max-width:768px) {
+    .big-box{
+        display: block;
+    }
+    .small-box{
+        margin: auto;
+        margin-bottom: 5px;
+    }
+    .box-1{
+        box-sizing: border-box;
+        padding: auto;
+    }
+    .usercontrol{
+        justify-content: space-around;
+        margin: auto;
+    }
+    #icon-edit,#icon-delete{
+        font-size: large;
+        margin: auto;
+        margin-left: 18px;
+    } 
+    .edit-delete{
+        margin: auto;
+        margin-left: 10%;
+    }
+    .userinfo span{
+        font-size: small;
+        
+    }        
+    .userinfo small{
+     font-size: small;
+    }
+    .linker{
+        font-size: x-large;
+    }
+    .cat-text{
+        font-size: small;
+    }
+    .userinfo small{
+        font-size: x-small;
+    }
+    
+}
+/* home-end */
+/* Detailed */
+@media only screen and (max-width:768px) {
+    #by{
+        font-size: larger;
+    }
+    #authorlink{
+        font-size: large;
+    }
+    .edit-delete{
+        margin: auto;
+        margin-right: 15px;
+    }
+    #icon-delete,#icon-edit{
+        font-size: 28px;
+    }
+    .post-body,.comment-body{
+        margin: auto;
+        margin-top: -15px;
+        padding: 5px;
+    }
+    .post-body h2,.comments h2,.post-img-container h2{
+        font-size: larger;
+    }
+    .post-body-box p,.comment-body p{
+        font-size: 15px;
+        margin-left: 5px;
+        padding: 2.5px;
+        overflow: scroll;
+    }
+    .comment-body{
+        overflow: auto;
+    }
+    .comment-body span{
+        font-size: xx-small;
+
+    }
+    .post-body-box,.comment-body{
+        background: white;
+        margin: 0;
+        border-radius: 22px;
+        height: max-content;
+    }
+    .likes-comments, .likes-comments span{
+        font-size: small;
+    }
+    #cmt-btn{
+        font-weight: bold;
+        font-size: small;
+    }
+    .comment-btn{
+        padding: 2px;
+        margin: auto;
+    }
+    .post-img-container{
+        margin-bottom: 25px;
+    }
+    .post-img{
+        width: 50vh;
+        height: auto;
+    }
+}
+/* Detailed */
+/* Responsive */
+
+
+
+/* ---------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    background-repeat: no-repeat;
+    background-size: contain;
+    object-fit: contain;
+    /* background-position:left;  */
+}
+
+.container{
+    width: 100%;
+    height:100vh;
+    font-family: sans-serif;
+    /* background: rgb(187, 187, 245); */
+    display: flex;
+    flex:1;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    width: 450px;
+    height: 650px;
+    border-radius: 65px;
+    background-color: #343177;
+    perspective: 200px;
+    /* margin-left: 50%; */
+    
+}
+
+.inner-box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* transform: rotateY(-180deg); */
+    transform-style: preserve-3d ;
+    transition: transform 1s;
+    
+}
+.card-front,.card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background-position: center; */
+    background-size: cover;
+    
+    padding: 55px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    border-radius: 65px;
+    background: #6C63FF;
+    box-shadow: inset 31px 31px 62px #534cc4,
+                inset -31px -31px 62px #857aff;
+
+}
+.card-back{
+    transform: rotateY(180deg);
+
+}
+.card h2{
+    font-weight: normal;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom:  20px;
+    font-family: 'Nova Round', cursive;
+    font-weight: 600;
+    color:#a39eff;
+
+}
+.input-box{
+    width: 100%;
+    background: transparent;
+    border: 2px solid white;
+    margin: 6px 0;
+    height: 32px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
+    color: black;
+    
+}
+::placeholder{
+    color: white;
+    font-size: 12px;
+
+}
+button{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #fff;
+    margin: 20px 0 10px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+
+}
+.submit-btn{
+    position: relative;
+}
+.submit-btn::after{
+    content: '\27a4';
+    color: #333;
+    line-height: 32px;
+    font-size: 18px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+
+}
+span{
+    font-size: 12px;
+    margin-left: 10px;
+}
+.card .btn{
+    margin-top: 30px;
+
+}
+.card a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+
+}
+
+.card img{
+    align-items: center;
+}
+
+.dummy {
+    height: 50%;
+    width: auto;
+    display: flex; justify-content: center;
+    
+}
+.dummy img{
+    border-radius: 50px;
+}
+.username-disp{
+    display: flex; justify-content: center;
+          
+}
+.username-disp span{
+    font-size: xx-large; color: yellow;
+    margin-top: 5px;
+}
+.urlss{
+    display: flex;justify-content: center; flex-wrap: wrap;
+    flex-direction: row;
+
+}
+.indi-link{
+    margin: auto;
+    margin-top: 10px;
+}
+.indi-link img{
+    height: 35px;
+
+}
+
+@media(max-width:1000px){
+    .card{
+        margin:auto;
+        height:550px;
+        width: 300px;
+        border-radius: 45px;
+    }
+    .dummy img{
+        height: 86%
+    }
+    .card-front,.card-back{
+        border-radius:45px;
+    background: #8680ff;
+    box-shadow: inset 31px 31px 62px #6763c4,
+            inset -31px -31px 62px #a59dff;
+    }
+    .card-front h2{
+        font-size: xx-large;
+    }
+    .container{
+        background:#4b4889;
+    }
+    .indi-link img{
+        height: 30px;
+    }
+    .indi-link{
+        margin: 8px;
+    }
+}

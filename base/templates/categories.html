@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block content%}
+{% if category_post%}
+<div class="edit-class cat-class big box">
+    <h1>{{cat}} </h1>
+    <div class="boxes-1">
+        {% for pop in category_post %}
+        <div class=" small-box ">
+            <li>
+                <a href=" {% url 'detail' pop.pk %}" class="linker">{{pop.title}}</a> -<small
+                    class="cat-text">{{pop.category}}</small>
+                <div class="usercontrol">
+                    <div class="userinfo">
+                        <span>{{pop.author.first_name}}
+                            {{pop.author.last_name}},</span>
+                        <small>{{pop.post_date}}</small>
+                    </div> <br>
+                </div>
+                <!-- TO output limited Character in home-page -->
+                {{pop.body|slice:":45"}} <br> <br>
+            </li>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+{%else%}
+<div class="edit-class">
+    <h1>{{cat}} </h1>
+    <h3 style="text-align: center;color: yellowgreen;">NO Posts in this Category Yet!!!!</h3>
+</div>
+{%endif%}
+{% endblock%}

@@ -1,0 +1,114 @@
+{% extends 'base.html'%}
+{% load static %}
+{%block title%}{{post.tag}}
+{%endblock%}
+{% block content%}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'stylish.css' %}">
+<!-- Write post. only for it to work -->
+<!-- <div class="edit-class detailed-class"> -->
+<h1 style="color: yellow;text-align: center;">{{post.title}}</h1>
+<div class="usercontrol">
+  <div class="userinfo">
+    <small id="by">By:</small>
+    {% if post.author.userprofile.id %}
+    <a href="{% url 'userprofile' post.author.userprofile.id %} " id="authorlink" class="linker"
+      style="text-decoration: none;">
+      {{post.author.first_name}}
+    </a>
+    {% else %}
+    <span class="linker" style="color: red;">{{post.author.first_name}}</span>
+    {% endif %}
+  </div>
+  <!-- <small>By: {{post.author.first_name}} </small>   -->
+  <div class="edit-delete">
+    {% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
+    <!-- <span class="hyph" style="color:#f96d00 "> --</span> -->
+    <a href="{% url 'edit' post.pk %}"><span class="material-icons-round" id="icon-edit">edit
+      </span></a>
+    <a href="{% url 'delete' post.pk %}"><span class="material-icons-round" id="icon-delete">
+        delete
+      </span></a>
+    {% endif %}
+    {% endif %}
+  </div>
+</div>
+<hr style="color: yellow;">
+<hr style="color: yellow;">
+<br>
+
+{% if post.header_image %}
+<div class="post-img-container">
+  <h2>Image</h2>
+  <div class="post-img-container2">
+
+    <div class="post-img">
+      <img src=" {{post.header_image.url}}">
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- For enabling html tags in add post -->
+<div class=" post-body">
+
+  <h2>Body</h2>
+  <div class="post-body-box">
+    {{post.body|safe}}
+  </div>
+</div>
+
+<hr>
+<div class="likes-comments">
+  <div class="likes">
+    <span>{{ total_likes}} Likes</span>
+    <br>
+    <form action="{% url 'like_post' post.pk %}" method="POST">
+      {% csrf_token %}
+      {% if user.is_authenticated %}
+      {% if liked %}
+      <!-- No commas in betwwn below line for it to work -->
+      <button type="submit" name='post_id' value='{{ post.id }}' class="btn btn-danger btn-sm ">
+        <span class="material-icons-round">
+          thumb_down_alt
+        </span>
+      </button>
+      {% else %}
+      <button type="submit" name='post_id' value='{{ post.id }}' class="btn btn-primary btn-sm ">
+        <span class="material-icons-round">
+          thumb_up_alt
+        </span> </button>
+      {% endif %}
+      {% else %}
+      <button type="submit" name='post_id' value='{{ post.id }}' class="btn btn-secondary btn-sm ">
+        <a href="{%url 'login'%}"> Login to like</a> </button>
+      {% endif %}
+
+  </div>
+  </form>
+  <br><br>
+  <a href="{% url 'home'%}" class="btn btn-secondary "><span class="material-icons-round">
+      arrow_back
+    </span></a>
+
+  <br><br>
+  <div class="comments">
+    <h2>Comments</h2>
+    <button type="submit" class="btn btn-secondary comment-btn"><a href="{% url 'Add_comment' post.pk %}"
+        style="text-decoration: none;color: #f96d00; font-weight: bolder;" id="cmt-btn">Add
+        Comment</a></button> <br><br>
+    {% if not post.comments.all %}
+    <span id="comment">NO Comments Yet !!!</span>
+    {% else %}
+    <div class="comment-body">
+      {% for comment in post.comments.all %}
+      <span>{{comment.name}}-
+        {{comment.date_added}}</span> <br>
+      <span style="color: black;">{{comment.body}}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+<br><br>
+{% endblock%}

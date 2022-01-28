@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{%block title%}Create A New Category {%endblock%}
+{% block content%}
+{% if user.is_authenticated%}
+<div class="edit-class">
+    <h1>Add Category</h1>
+    <div class="form-group">
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <!-- as_'format' -->
+            <button class="btn btn-danger">Add Category</button>
+    </div>
+</div>
+{%else%}
+<div class="edit-class">
+    <h1>Login Or Register Yourself</h1>
+</div>
+{%endif%}
+{% endblock%}
